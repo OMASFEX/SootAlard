@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="موقع صوت الأرض هو موقع تم عمله لمسابقة جائزة الدولة للمبدع الصغير و فكرة الموقع بسيطة و من ضمن المواضيع الحيوية و هي تغير المناخ ">
+
+<!-- الكلمات المفتاحية -->
+<meta name="keywords" content="صوت الأرض , تغير المناخ , معلومات عن تغير المناخ , معلومات عامة , المناخ , المواضيع الحيوية , مسابقات">
+<title>صوت الأرض</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Alexandria', sans-serif;
+    background-color: #2F873E; /* اللون الأخضر للخلفية */
+    color: white;
+    display: flex; /* جعل الصفحة تعتمد Flexbox */
+    justify-content: center; /* تمركز العناصر أفقيًا */
+    align-items: center; /* تمركز العناصر رأسيًا */
+    height: 100vh; /* جعل الصفحة تأخذ كامل الارتفاع */
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.8rem; /* تكبير حجم العنوان */
+position: relative;
+top: 15px;
+left: 766px;
+z-index: 3;
+font-family: "Rakkas", serif;
+font-size: 55px;
+}
+
+p {
+    font-size: 2rem; /* تكبير حجم النص */
+    line-height: 2;
+font-size: large 50px;
+position: relative;
+bottom: 20px;
+right: 10px;
+}
+
+
+
+#mybutton {
+    position: absolute;
+    left: 894px;
+    bottom: 40px;
+    background-color: #6CC24A;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    font-family: "Alexandria", serif;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* ضروري عشان الانيمشن */
+    transition: all 0.3s ease;
+}
+
+#mybutton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1; /* تحت النص */
+    transform: skewX(-45deg); /* ميل للأنيمشن */
+    transition: left 0.5s;
+}
+
+#mybutton:hover::before {
+    left: 100%; /* حركة الانزلاق */
+}
+
+#mybutton:hover {
+    background-color: #57A03E;
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+#mybutton:active {
+    transform: scale(1);
+    box-shadow: 0 
+}
+#kht{
+    font-size: 2.8rem; /* تكبير حجم العنوان */
+position: relative;
+    right: 10px;  
+    top: 10px; 
+font-family: "Alexandria", serif;
+font-size: 55px;
+}
+nav {
+    background-color: #003a0a;
+    overflow: hidden;
+    font-family: "Alexandria", serif;
+position: absolute;
+bottom: 820px;
+z-index: 1;
+width: 100%;
+}
+nav {
+    background-color: green;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* لجعل العناصر تظهر بجانب بعضها */
+    justify-content: space-around; /* لتوزيع العناصر بالتساوي */
+}
+
+nav li {
+    display: inline-block;
+    padding: 10px;
+}
+nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.logo {
+    position: absolute;
+bottom: 700px;
+    left: 1700px;
+    z-index: 2;
+    width: 330px; /* تكبير حجم الشعار */
+    pointer-events: none;
+
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+<h1>صوت الأرض</h1>
+<h1 id="kht">صوت الأرض</h1>
+
+<p>
+    صوت الأرض هي شركة ناشئة تهدف إلى رفع الوعي والمساهمة الفعالة في مكافحة التغير المناخي وحماية البيئة. 
+    نحن نسعى لتغيير طريقة تفاعل الناس مع قضايا المناخ من خلال تقديم حلول مستدامة ومبتكرة للتعامل مع 
+    التحديات البيئية التي تواجه كوكبنا. تهدف "صوت الأرض" إلى أن تكون منصة حيوية لنشر المعرفة وتعزيز 
+    التعاون المجتمعي لحماية البيئة، مع التركيز على التوعية والعمل الفعّال لمستقبل أفضل وأكثر استدامة 
+    للأجيال القادمة.
+</p>
+<button id="mybutton">متابعة</button>
+<script>
+    // الجافا سكريبت لتوجيه المستخدم عند الضغط على الزر
+    document.getElementById("mybutton").addEventListener("click", function() {
+        window.location.href = "3.html"; // توجه المستخدم للصفحة المطلوبة
+    });
+</script>
+</div>
+<img src="لوجو.png" width="1200" height="250"  alt="لوجو صوت الأرض" class="logo">
+
+<nav>
+    <ul>
+        <li><a href="index.html">الصفحة الرئيسية</a></li>
+        <li><a href="2.html">صوت الأرض</a></li>
+        <li><a href="3.html">أسباب التغير المناخي</a></li>
+        <li><a href="4.html">الحلول لمكافحة التغير المناخي</a></li>
+        <li><a href="5.html">أثر التغير المناخي علي الكائنات الحية</a></li>
+        <li><a href="6.html">تواصل معنا</li>
+    </ul>
+</nav>
+</body>
+</html>

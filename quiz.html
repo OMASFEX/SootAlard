@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>كويز تغير المناخ</title>
+    <!-- استيراد خط Alexandria -->
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            background-color: #208580; /* لون الخلفية الأخضر */
+            font-family: "Alexandria", serif; /* تطبيق الخط المطلوب */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-box {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #28a745; /* لون الرسالة */
+        }
+        .answers-container {
+            display: grid;
+            gap: 10px;
+        }
+        .answer {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .answer:hover {
+            background-color: #e6f5ff;
+        }
+        .answer.correct {
+            background-color: #d4edda; /* لون للإجابة الصحيحة */
+            border-color: #28a745;
+            color: #155724;
+        }
+        .answer.wrong {
+            background-color: #f8d7da; /* لون للإجابة الخاطئة */
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        .certificate-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        .certificate-container h2 {
+            color: #419b41;
+            margin-bottom: 20px;
+        }
+        .certificate-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        .certificate-container input, .certificate-container select, .certificate-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .certificate-container button {
+            background-color: #419b41;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .certificate-container button:hover {
+            background-color: #317a31;
+        }
+/* تنسيق الشريط العلوي (نافبار) */
+nav {
+  background-color: rgb(0, 12, 53); /* لون الخلفية */
+  text-align: center; /* محاذاة المحتوى للوسط */
+  width: 100%; /* عرض كامل الشاشة */
+  position: absolute;
+  bottom: 820px;
+  z-index: 1; /* فوق المحتوى الآخر */
+  font-family: "Alexandria", serif;
+}
+
+/* تنسيق قائمة الروابط */
+nav ul {
+  list-style: none; /* إزالة النقاط من القائمة */
+  display: flex; /* جعل العناصر بجانب بعضها */
+  justify-content: space-around; /* توزيع العناصر بالتساوي */
+}
+
+/* تنسيق كل عنصر في القائمة */
+nav li {
+  display: inline-block; /* عرض كعنصر خطي */
+  padding: 10px;
+}
+
+/* تنسيق الروابط */
+nav a {
+  float: left;
+  color: #f2f2f2; /* لون النص */
+  text-align: center;
+  padding: 14px 16px; /* مساحة داخلية */
+  text-decoration: none; /* إزالة الخط السفلي */
+}
+
+/* تأثير عند التمرير على الروابط */
+nav a:hover {
+  background-color: #ddd; /* خلفية فاتحة */
+  color: black; /* لون النص أسود */
+}
+#b12 {
+  position: absolute;
+  left: 900px;
+  bottom: 80px;
+  background-color: #00e1ff; /* لون خلفية الزر */
+  border: none; /* إزالة الحدود */
+  border-radius: 50px; /* جعل الزر دائري الحواف */
+  padding: 15px 30px; /* مساحة داخلية للزر */
+  font-size: 18px; /* حجم النص */
+  color: white; /* لون النص */
+  font-family: "Alexandria", serif;
+  cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* ظل الزر */
+  overflow: hidden; /* لإخفاء الأنيميشن */
+  transition: all 0.3s ease; /* انتقال سلس للخصائص */
+}
+
+/* تأثير الأنيميشن على الزر */
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* بداية الحركة */
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* تأثير لامع */
+  z-index: -1; /* أسفل النص */
+  transform: skewX(-45deg); /* إمالة التأثير */
+  transition: left 0.5s; /* مدة الحركة */
+}
+
+/* حركة التأثير عند التمرير على الزر */
+button:hover::before {
+  left: 100%; /* نهاية الحركة */
+}
+
+/* تغيير مظهر الزر عند التمرير */
+button:hover {
+  background-color: #57A03E; /* لون خلفية مختلف */
+  transform: scale(1.1); /* تكبير الزر */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* ظل أكبر */
+}
+
+/* عند الضغط على الزر */
+button:active {
+  transform: scale(1); /* العودة للحجم الطبيعي */
+}
+ 
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <div class="question" id="question-text">ما هو تغير المناخ؟</div>
+        <div id="answers-container" class="answers-container"></div>
+        <div id="result" class="result"></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home.html">الصفحة الرئيسية</a></li>
+            <li><a href="2.html">صوت الأرض</a></li>
+            <li><a href="3.html">أسباب التغير المناخي</a></li>
+            <li><a href="4.html">الحلول لمكافحة التغير المناخي</a></li>
+            <li><a href="5.html">أثر التغير المناخي علي الكائنات الحية</a></li>
+            <li><a href="6.html">تواصل معنا</li>
+        </ul>
+    </nav>
+  
+
+    <script>
+        // قائمة الأسئلة
+        const questions = [
+            {
+                question: "ما هو تغير المناخ؟",
+                answers: [
+                    { text: "زيادة حرارة كوكب الأرض فقط", isCorrect: false },
+                    { text: "زيادة الأمطار فقط", isCorrect: false },
+                    { text: "تغير طويل الأمد في أنماط الطقس", isCorrect: true },
+                    { text: "ارتفاع حرارة المناطق القطبية فقط", isCorrect: false }
+                ]
+            },
+            {
+                question: "ما هي الغازات التي تساهم في تغير المناخ؟",
+                answers: [
+                    { text: "ثاني أكسيد الكربون", isCorrect: true },
+                    { text: "الأكسجين", isCorrect: false },
+                    { text: "النيتروجين", isCorrect: false },
+                    { text: "الأرجون", isCorrect: false }
+                ]
+            },
+            {
+                question: "كيف يؤثر الاحتباس الحراري على الكوكب؟",
+                answers: [
+                { text: "تساوي درجات الحرارة عالميًا", isCorrect: false },
+                    { text: "توسع المناطق الجليدية", isCorrect: false },
+                    { text: "انخفاض درجات الحرارة", isCorrect: false },
+                    { text: "ارتفاع مستوى سطح البحر", isCorrect: true }
+                ]
+            },
+            {
+                question: "كيف يمكننا مكافحة تغير المناخ؟",
+                answers: [
+                { text: "زيادة استهلاك الفحم", isCorrect: false },
+                { text: "تقليل استخدام الوقود الأحفوري", isCorrect: true },
+                    { text: "إزالة الغابات", isCorrect: false },
+                    { text: "زيادة النفايات البلاستيكية", isCorrect: false }
+                ]
+            },
+            {
+                question: "أي من الخيارات التالية يعد طاقة نظيفة؟",
+                answers: [
+                    { text: "الطاقة الشمسية", isCorrect: true },
+                    { text: "الفحم", isCorrect: false },
+                    { text: "البترول", isCorrect: false },
+                    { text: "الغاز الطبيعي", isCorrect: false }
+                ]
+            },
+            {
+                question: "ما هو تأثير البلاستيك على البيئة؟",
+                answers: [
+                { text: "ليس له تأثير", isCorrect: false },
+                { text: "يقلل من الانبعاثات", isCorrect: false },
+                    { text: "يزيد التلوث البحري", isCorrect: true },
+                    { text: "يحسن نمو الكائنات البحرية", isCorrect: false }
+                ]
+            },
+            {
+                question: "ما هو سبب ذوبان الجليد القطبي؟",
+                answers: [
+                    { text: "زيادة انبعاثات الغازات الدفيئة", isCorrect: true },
+                    { text: "زيادة الأشجار", isCorrect: false },
+                    { text: "تقليل استهلاك الطاقة", isCorrect: false },
+                    { text: "زيادة هطول الأمطار", isCorrect: false }
+                ]
+            },
+            {
+                question: "ما هو دور الغابات في تقليل تغير المناخ؟",
+                answers: [
+                { text: "تساعد في تكوين البلاستيك", isCorrect: false },
+                    { text: "تزيد الغازات الدفيئة", isCorrect: false },
+                    { text: "تقلل استخدام الطاقة", isCorrect: false },
+                    { text: "تمتص ثاني أكسيد الكربون", isCorrect: true },
+                ]
+            },
+            {
+                question: "ما هو الاحتباس الحراري؟",
+                answers: [
+                    { text: "زيادة حرارة الغلاف الجوي بسبب الغازات الدفيئة", isCorrect: true },
+                    { text: "زيادة الحرارة بسبب الشمس فقط", isCorrect: false },
+                    { text: "تقليل الأمطار", isCorrect: false },
+                    { text: "انخفاض الحرارة عالميًا", isCorrect: false }
+                ]
+            },
+            {
+                question: "كيف يؤثر النقل البري على تغير المناخ؟",
+                answers: [
+                    { text: "يزيد انبعاثات الغازات الدفيئة", isCorrect: true },
+                    { text: "يقلل من استهلاك الوقود", isCorrect: false },
+                    { text: "لا علاقة له بالبيئة", isCorrect: false },
+                    { text: "يحسن جودة الهواء", isCorrect: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function showQuestion() {
+            const question = questions[currentQuestionIndex];
+            const questionText = document.getElementById("question-text");
+            const answersContainer = document.getElementById("answers-container");
+            const result = document.getElementById("result");
+
+            questionText.textContent = question.question;
+            result.textContent = "";
+
+            answersContainer.innerHTML = "";
+            question.answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.classList.add("answer");
+                button.textContent = answer.text;
+                button.onclick = () => handleAnswer(answer.isCorrect, button);
+                answersContainer.appendChild(button);
+            });
+        }
+
+        function handleAnswer(isCorrect, button) {
+            const result = document.getElementById("result");
+            if (isCorrect) {
+                button.classList.add("correct");
+                result.textContent = "إجابة صحيحة! 🎉";
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        showQuestion();
+                    } else {
+                        result.textContent = "مبروك! أكملت جميع الأسئلة! 🌟";
+                    }
+                }, 1000);
+            } else {
+                button.classList.add("wrong");
+                result.textContent = "إجابة خاطئة! حاول مرة أخرى. 😞";
+            }
+        }
+
+        showQuestion();
+        document.getElementById("certificateForm").addEventListener("submit", function(event) {
+    // منع السلوك الافتراضي (منع إعادة التوجيه أو التحميل)
+    event.preventDefault();
+
+    // جلب البيانات
+    const name = document.getElementById("name").value;
+    const language = document.getElementById("language").value;
+
+    // نص الشهادة حسب اللغة
+    const certificateContent = {
+        ar: `نُهدي هذه الشهادة إلى <b>${name}</b> لإكمال الاختبار بنجاح.`,
+        en: `This certificate is awarded to <b>${name}</b> for successfully completing the quiz.`
+    };
+
+    // عرض الشهادة
+    const certificate = document.getElementById("certificate");
+    document.getElementById("certificateText").innerHTML = certificateContent[language];
+    certificate.style.display = "block";
+
+    // إخفاء الفورم
+    document.querySelector(".form-container").style.display = "none";
+});
+
+    </script>
+     <button id="b12">
+        إنهاء
+     </button>
+</body>
+</html>

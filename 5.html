@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="موقع صوت الأرض هو موقع تم عمله لمسابقة جائزة الدولة للمبدع الصغير و فكرة الموقع بسيطة و من ضمن المواضيع الحيوية و هي تغير المناخ ">
+
+<!-- الكلمات المفتاحية -->
+<meta name="keywords" content="صوت الأرض , تغير المناخ , معلومات عن تغير المناخ , معلومات عامة , المناخ , المواضيع الحيوية , مسابقات">
+<title>أثر تغير المناخ علي الكائنات الحية</title>
+<style>
+body{
+background-color: #3e2723;
+}
+h1{
+font-family: "Alexandria", serif;
+color: aliceblue;
+font-size: 70px;
+position: absolute;
+left: 390px;
+top: 90px;
+}
+#img1{
+    position: absolute;
+    top: 270px;
+    left:90px ;
+
+}
+#img2{
+    position: absolute;
+    top: 270px;
+    left:1000px ;
+
+}
+h3{
+    font-family: "Alexandria", serif;
+font-size: 45px;
+color: aliceblue;
+position: absolute;
+top: 795px;
+left: 1000px;
+}
+#mybutton {
+    position: absolute;
+    left: 90px;
+    bottom: 30px;
+    background-color: #450b0b;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    font-family: "Alexandria", serif;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* ضروري عشان الانيمشن */
+    transition: all 0.3s ease;
+    font-size: 30px;
+}
+
+#mybutton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1; /* تحت النص */
+    transform: skewX(-45deg); /* ميل للأنيمشن */
+    transition: left 0.5s;
+}
+
+#mybutton:hover::before {
+    left: 100%; /* حركة الانزلاق */
+}
+
+#mybutton:hover {
+    background-color: #4f0c0c;
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+#mybutton:active {
+    transform: scale(1);
+    box-shadow: 0 
+}
+nav {
+    background-color: #220808;
+    overflow: hidden;
+    font-family: "Alexandria", serif;
+position: absolute;
+bottom: 829px;
+left: 1px;
+width: 100%;
+text-align: center;
+
+}
+nav ul {
+    list-style: none;
+    display: flex; /* لجعل العناصر تظهر بجانب بعضها */
+    justify-content: space-around; /* لتوزيع العناصر بالتساوي */
+}
+
+nav li {
+    display: inline-block;
+    padding: 10px;
+}
+nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+</style>
+</head>
+<body>
+<h1>أثر تغير المناخ علي الكائنات الحية</h1>
+<img id="img1" src="human-cost.jpg" alt="صورة لأطفال يبحثون عن المياه بسبب التغير المناخي" width="800">
+<img id="img2" src="ماعز تاكل.jpg" alt="ماعز تبحث عن الأعشاب و الحشائش في ظل الجفاف السائد" width="800">
+<div style="white-space: nowrap; overflow-x: auto;">
+<h3>.تغير المناخ يهدد حياة الحيوان و الإنسان</h3>
+<a href="quiz.html" id="mybutton" style="display: inline-block; padding: 10px; background: #550d0d; color: white; text-decoration: none; border-radius: 5px;">إنتهت الرحلة</a>
+</div>
+<nav>
+    <ul>
+    
+    <li><a href="6.html">تواصل معنا</li>
+    <li><a href="5.html">أثر التغير المناخي علي الكائنات الحية</a></li>
+    
+    <li><a href="4.html">الحلول لمكافحة التغير المناخي</a></li>
+    <li><a href="3.html">أسباب التغير المناخي</a></li>
+    <li><a href="2.html">صوت الأرض</a></li>
+    <li><a href="index.html">الصفحة الرئيسية</a></li>
+    
+    </ul>
+    </nav>
+</body>
+</body>
+</html>
